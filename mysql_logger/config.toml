@@ -1,0 +1,7 @@
+output_mode = "postgresql"
+db_url = "postgres://postgres:Bisoft2026!!@127.0.0.1:5433/postgres"
+db_table = "mysql_audit_logs"
+hostname = "bfm01"
+ip = "127.0.0.1"
+flush_interval_secs = 2
+batch_size = 5

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mysql_logger_app:
+    build: .
+    container_name: mysql_logger_service
+    restart: always
+    # Programın PostgreSQL'i bulabilmesi için konteyner ağını direkt senin sunucunun ağına bağlıyoruz.
+    network_mode: "host"
+    volumes:
+      # SİHİRLİ KISIM BURASI: Sunucudaki log klasörünü, kutunun içine "Sadece Okunabilir (ro)" olarak yansıtıyoruz.
+      - /var/log/mysql:/var/log/mysql:ro
+      # Program nerede kaldığını unutmasın diye kendi hafıza dosyasını dışarıya kaydediyor.
+      - ./sincedb:/app/sincedb
