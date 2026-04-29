@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  mongodb_logger_service:
+    build: .
+    container_name: mongodb_logger_container
+    restart: always
+    network_mode: "host"
+    env_file: .env
+    volumes:
+      - /var/log/mongodb:/var/log/mongodb:ro # Log dosyasını sadece okuma yetkisiyle içeri alıyoruz
